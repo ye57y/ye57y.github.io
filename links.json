@@ -1,0 +1,72 @@
+{
+  "_comment": "Placeholder Admitad affiliate targets. Replace href values with real Admitad tracking URLs from your publisher panel. Do not invent URLs.",
+  "disclosure_pl": "Strona zawiera linki afiliacyjne (reklama). Możemy otrzymać prowizję.",
+  "partners": [
+    {
+      "id": "nordvpn",
+      "name": "NordVPN",
+      "placeholder_href": "#admitad-nordvpn",
+      "html_anchors": [
+        "#admitad-nordvpn"
+      ],
+      "notes": "Replace with Admitad deep/tracking link when available"
+    },
+    {
+      "id": "surfshark",
+      "name": "Surfshark",
+      "placeholder_href": "#admitad-surfshark",
+      "html_anchors": [
+        "#admitad-surfshark"
+      ],
+      "notes": "Replace with Admitad deep/tracking link when available"
+    },
+    {
+      "id": "protonvpn",
+      "name": "Proton VPN",
+      "placeholder_href": "#admitad-protonvpn",
+      "html_anchors": [
+        "#admitad-protonvpn"
+      ],
+      "notes": "Replace with Admitad deep/tracking link when available"
+    },
+    {
+      "id": "expressvpn",
+      "name": "ExpressVPN",
+      "placeholder_href": "#admitad-expressvpn",
+      "html_anchors": [
+        "#admitad-expressvpn"
+      ],
+      "notes": "Replace with Admitad deep/tracking link when available"
+    },
+    {
+      "id": "mullvad",
+      "name": "Mullvad",
+      "placeholder_href": "#admitad-mullvad",
+      "html_anchors": [
+        "#admitad-mullvad"
+      ],
+      "notes": "May not always be in Admitad catalog — verify offer availability before linking"
+    },
+    {
+      "id": "wpsoffice",
+      "name": "WPS Office",
+      "placeholder_href": "https://yynbx.com/g/nv5qc75bd98ba50fa66a0e10b6b7ca/",
+      "html_anchors": [],
+      "notes": "Live Admitad CPA tracking URL (VPN Ad Space). CPC alt: https://yynbx.com/c/nv5qc75bd98ba50fa66a0e10b6b7ca/"
+    },
+    {
+      "id": "wondershare",
+      "name": "Wondershare WW",
+      "placeholder_href": "https://kjuzv.com/g/8u3trxihmwf17bfb1c64ef655e4ac9/",
+      "html_anchors": [],
+      "notes": "Live Admitad tracking URL from Deal 2994177 Joined 2026-09-17"
+    },
+    {
+      "id": "prohoster",
+      "name": "ProHoster WW",
+      "placeholder_href": "https://ntzgd.com/g/gaetfoqpj7f17bfb1c64934d4157fe/",
+      "html_anchors": [],
+      "notes": "Live Admitad tracking URL from Deal 2994177 Joined 2026-09-17"
+    }
+  ]
+}
