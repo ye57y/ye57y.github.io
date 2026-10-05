@@ -9,8 +9,8 @@ window.ADMITAD_LINKS = {
   expressvpn: "#admitad-expressvpn",
   mullvad: "#admitad-mullvad",
   wpsoffice: "https://yynbx.com/g/nv5qc75bd98ba50fa66a0e10b6b7ca/",
-  wondershare: "https://kjuzv.com/g/8u3trxihmwf17bfb1c64ef655e4ac9/",
-  prohoster: "https://ntzgd.com/g/gaetfoqpj7f17bfb1c64934d4157fe/"
+  wondershare: "https://kjuzv.com/g/8u3trxihmwc5205e972def655e4ac9/",
+  prohoster: "https://ntzgd.com/g/gaetfoqpj7c5205e972d934d4157fe/"
 };
 
 document.addEventListener("DOMContentLoaded", function () {
