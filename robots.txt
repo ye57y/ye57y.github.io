@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Optional: Sitemap once you have a public domain
-# Sitemap: https://YOUR-DOMAIN.example/sitemap.xml
+Sitemap: https://ye57y.github.io/sitemap.xml
