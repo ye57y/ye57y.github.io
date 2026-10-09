@@ -10,7 +10,8 @@ window.ADMITAD_LINKS = {
   mullvad: "#admitad-mullvad",
   wpsoffice: "https://yynbx.com/g/nv5qc75bd98ba50fa66a0e10b6b7ca/",
   wondershare: "https://kjuzv.com/g/8u3trxihmwc5205e972def655e4ac9/",
-  prohoster: "https://ntzgd.com/g/gaetfoqpj7c5205e972d934d4157fe/"
+  prohoster: "https://ntzgd.com/g/gaetfoqpj7c5205e972d934d4157fe/",
+  purevpn: "https://plrvq.com/g/ayvzzawv40cd2a4ab08cdd63dd688c/"
 };
 
 document.addEventListener("DOMContentLoaded", function () {
