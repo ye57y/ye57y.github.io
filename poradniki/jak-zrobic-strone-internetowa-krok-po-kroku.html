@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jak zrobić własną stronę internetową krok po kroku – domena, hosting, WordPress</title>
+  <meta name="description" content="Jak zrobić stronę internetową na WordPressie: wybór i rejestracja domeny, hosting czy VPS, DNS, instalacja WordPressa, SSL, bezpieczeństwo, kopie zapasowe, RODO i zgłoszenie do wyszukiwarek.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ye57y.github.io/poradniki/jak-zrobic-strone-internetowa-krok-po-kroku.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Jak zrobić własną stronę internetową krok po kroku – domena, hosting, WordPress">
+  <meta property="og:description" content="Jak zrobić stronę internetową na WordPressie: wybór i rejestracja domeny, hosting czy VPS, DNS, instalacja WordPressa, SSL, bezpieczeństwo, kopie zapasowe, RODO i zgłoszenie do wyszukiwarek.">
+  <meta property="og:url" content="https://ye57y.github.io/poradniki/jak-zrobic-strone-internetowa-krok-po-kroku.html">
+  <meta property="article:published_time" content="2026-10-11">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Jak zrobić własną stronę internetową krok po kroku – domena, hosting, WordPress",
+ "description": "Jak zrobić stronę internetową na WordPressie: wybór i rejestracja domeny, hosting czy VPS, DNS, instalacja WordPressa, SSL, bezpieczeństwo, kopie zapasowe, RODO i zgłoszenie do wyszukiwarek.",
+ "inLanguage": "pl-PL",
+ "datePublished": "2026-10-11",
+ "dateModified": "2026-10-11",
+ "mainEntityOfPage": "https://ye57y.github.io/poradniki/jak-zrobic-strone-internetowa-krok-po-kroku.html",
+ "author": {
+  "@type": "Organization",
+  "name": "Redakcja ye57y.github.io",
+  "url": "https://ye57y.github.io/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "ye57y.github.io",
+  "url": "https://ye57y.github.io/"
+ }
+}
+  </script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Strona główna",
+   "item": "https://ye57y.github.io/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Poradniki",
+   "item": "https://ye57y.github.io/poradniki/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Własna strona internetowa",
+   "item": "https://ye57y.github.io/poradniki/jak-zrobic-strone-internetowa-krok-po-kroku.html"
+  }
+ ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Ile kosztuje własna strona na WordPressie?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sam WordPress jest darmowy. Płacisz za domenę i hosting, a opcjonalnie za płatny motyw lub wtyczki. Ceny zależą od dostawcy, dlatego porównuj cenę pierwszego okresu z ceną odnowienia."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Czy do strony firmowej potrzebuję serwera VPS?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Zwykle nie. Typowa strona firmowa lub blog dobrze działa na hostingu współdzielonym. VPS ma sens przy większym ruchu, specyficznych wymaganiach lub gdy chcesz sam administrować serwerem."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Czy domenę i hosting kupić u jednego dostawcy?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "To wygodne, bo konfiguracja DNS dzieje się automatycznie. Kupując je osobno, łatwiej zmienić hosting w przyszłości. Najważniejsze, aby domena była zarejestrowana na Ciebie lub Twoją firmę."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Jak długo trwa podłączenie domeny do hostingu?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Zmiany DNS mogą rozchodzić się od kilku minut do nawet kilkudziesięciu godzin. Jeśli strona nie działa od razu po zmianie serwerów nazw, zwykle wystarczy poczekać."
+   }
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="top-nav" aria-label="Menu główne">
+        <a href="/">Porównanie VPN</a>
+        <a href="/poradniki/">Poradniki</a>
+        <a href="/admitad-vpn-pl/">VPN dla Polski</a>
+      </nav>
+      <p class="disclosure" role="note">
+        <strong>Reklama / afiliacja:</strong> Strona zawiera linki afiliacyjne (reklama). Jeśli kupisz coś po kliknięciu takiego linku, możemy otrzymać prowizję – bez dodatkowych kosztów dla Ciebie. Linki afiliacyjne są wyraźnie oznaczone. Nie gwarantujemy konkretnych cen ani oszczędności – ceny i oferty zmieniają się u dostawców.
+      </p>
+      <nav class="breadcrumbs" aria-label="Okruszki"><a href="/">Strona główna</a> › <a href="/poradniki/">Poradniki</a> › <span>Własna strona internetowa</span></nav>
+      <h1>Jak zrobić własną stronę internetową krok po kroku – domena, hosting, WordPress</h1>
+      <p class="lead">Od wyboru domeny, przez hosting i instalację WordPressa, po HTTPS, kopie zapasowe, politykę prywatności i mapę strony – praktyczny przewodnik dla początkujących.</p>
+      <p class="meta">Opublikowano: <time datetime="2026-10-11">11 października 2026</time> · Redakcja ye57y.github.io</p>
+    </div>
+  </header>
+
+  <main class="container" id="tresc">
+    <article class="article">
+<p>Własna strona internetowa – dla firmy, bloga, portfolio czy lokalnego warsztatu – nie wymaga dziś umiejętności programowania. Potrzebujesz trzech elementów: domeny (adresu), hostingu (miejsca na serwerze) i systemu do zarządzania treścią, najczęściej WordPressa. Ten poradnik prowadzi przez cały proces krok po kroku i pomaga uniknąć typowych błędów. W artykule znajduje się wyraźnie oznaczony link afiliacyjny do jednego z dostawców hostingu.</p>
+
+<h2>Krok 0: Czy na pewno potrzebujesz WordPressa?</h2>
+<p>Zanim kupisz domenę i hosting, zastanów się, jaka strona jest Ci potrzebna:</p>
+<ul>
+<li><strong>Kreatory stron</strong> (np. Wix, Squarespace czy WordPress.com) – wszystko w jednym abonamencie, łatwe na start, ale z mniejszą swobodą i trudniejszą przeprowadzką w przyszłości.</li>
+<li><strong>Strona statyczna</strong> – kilka prostych podstron bez panelu administracyjnego można bezpłatnie opublikować np. w GitHub Pages lub podobnych usługach. To dobre rozwiązanie dla osób, które nie boją się trochę techniki.</li>
+<li><strong>WordPress na własnym hostingu</strong> – najpopularniejszy system do stron internetowych, darmowy i otwartoźródłowy. Daje dużą swobodę: tysiące motywów i wtyczek, blog, sklep (np. z WooCommerce), formularze. Płacisz za domenę i hosting, ale strona należy do Ciebie i możesz ją przenieść do innego dostawcy.</li>
+</ul>
+<p>Dalsza część poradnika dotyczy trzeciej opcji.</p>
+
+<h2>Krok 1: Wybierz i zarejestruj domenę</h2>
+<p>Domena to adres strony, np. twojafirma.pl. Kilka praktycznych zasad:</p>
+<ul>
+<li>wybieraj nazwę krótką, łatwą do przeliterowania przez telefon, bez polskich znaków i najlepiej bez myślników,</li>
+<li>dla polskich odbiorców naturalnym wyborem jest końcówka .pl, a dla projektów międzynarodowych – np. .com lub .eu,</li>
+<li>sprawdź, czy nazwa nie narusza cudzego znaku towarowego,</li>
+<li>domenę rejestruje się na rok lub dłużej – porównaj nie tylko cenę za pierwszy rok, ale też <strong>cenę odnowienia</strong>, bo promocje na start bywają bardzo niskie, a odnowienie znacznie droższe,</li>
+<li>rejestruj domenę na siebie lub swoją firmę, a nie na osobę, która „ustawia stronę”, i pilnuj terminu odnowienia.</li>
+</ul>
+<p>Domenę możesz kupić u rejestratora domen albo razem z hostingiem. Trzymanie ich u jednego dostawcy jest wygodniejsze, osobno – daje większą niezależność przy zmianie hostingu.</p>
+
+<h2>Krok 2: Wybierz hosting</h2>
+<p>Dla typowej strony firmowej czy bloga na WordPressie w zupełności wystarczy <strong>hosting współdzielony</strong> – dostawca dba o serwer, a Ty zarządzasz stroną przez panel. <strong>Serwer VPS</strong> daje więcej mocy i swobody, ale wymaga administrowania systemem (chyba że wybierzesz VPS zarządzany). Na co zwrócić uwagę:</p>
+<ul>
+<li>obsługa aktualnej wersji PHP i bazy danych MySQL lub MariaDB (wymagania znajdziesz na stronie WordPress.org),</li>
+<li>darmowy certyfikat SSL (np. Let’s Encrypt),</li>
+<li>automatyczne kopie zapasowe i możliwość samodzielnego przywrócenia,</li>
+<li>lokalizacja serwerów – dla polskich odbiorców najlepiej Polska lub pobliski kraj UE,</li>
+<li>cena odnowienia, warunki rezygnacji i forma faktury.</li>
+</ul>
+<p>Szczegółowe kryteria porównania opisujemy w poradniku <a href="/poradniki/tani-hosting-vps-dla-poczatkujacych.html">Tani hosting i VPS dla początkujących</a>.</p>
+
+<h2>Krok 3: Połącz domenę z hostingiem (DNS)</h2>
+<p>Jeśli kupujesz domenę i hosting u jednego dostawcy, zwykle dzieje się to automatycznie. Jeśli osobno – w panelu rejestratora zmień serwery nazw (DNS) na te podane przez hostingodawcę albo ustaw rekord A wskazujący na adres IP serwera. Zmiany mogą rozchodzić się po internecie od kilku minut do nawet kilkudziesięciu godzin, więc nie panikuj, jeśli strona nie działa od razu.</p>
+
+<h2>Krok 4: Zainstaluj WordPressa</h2>
+<p>Masz trzy możliwości:</p>
+<ol>
+<li><strong>Autoinstalator w panelu hostingu</strong> – najprostsza droga. Wybierasz domenę, podajesz nazwę strony, login i hasło administratora, a instalator sam tworzy bazę danych i kopiuje pliki.</li>
+<li><strong>Instalacja ręczna</strong> – pobierasz WordPressa ze strony WordPress.org, tworzysz w panelu bazę danych i użytkownika, wgrywasz pliki przez FTP/SFTP lub menedżer plików, a następnie otwierasz adres strony i przechodzisz przez kreator konfiguracji.</li>
+<li><strong>Instalacja na VPS</strong> – najpierw instalujesz serwer WWW (np. Nginx lub Apache), PHP i bazę danych, konfigurujesz zaporę i SSL, a dopiero potem WordPressa. To dobre ćwiczenie, ale wymaga znajomości Linuksa i dbania o aktualizacje.</li>
+</ol>
+<p>Pamiętaj, aby nie używać loginu „admin” i ustawić długie, unikalne hasło.</p>
+
+<h2>Krok 5: Włącz HTTPS</h2>
+<p>Włącz certyfikat SSL w panelu hostingu, a następnie w ustawieniach WordPressa upewnij się, że adres strony zaczyna się od https://. Przeglądarki oznaczają strony bez HTTPS jako niezabezpieczone, a formularze kontaktowe bez szyfrowania narażają dane odwiedzających.</p>
+
+<h2>Krok 6: Podstawowa konfiguracja</h2>
+<ul>
+<li><strong>Bezpośrednie odnośniki:</strong> w Ustawieniach wybierz czytelne adresy, np. z nazwą wpisu, zanim opublikujesz treści.</li>
+<li><strong>Motyw:</strong> wybierz lekki, regularnie aktualizowany motyw z oficjalnego katalogu WordPress.org. Unikaj „darmowych” wersji płatnych motywów z nieznanych źródeł – często zawierają złośliwy kod.</li>
+<li><strong>Wtyczki:</strong> instaluj tylko te, których naprawdę potrzebujesz (np. formularz kontaktowy, kopie zapasowe, ochrona przed spamem). Każda wtyczka to kolejny element do aktualizowania.</li>
+<li><strong>Usuń przykładowe treści</strong> i nieużywane motywy oraz wtyczki.</li>
+</ul>
+
+<h2>Krok 7: Bezpieczeństwo i kopie zapasowe</h2>
+<ul>
+<li>regularnie aktualizuj WordPressa, motyw i wtyczki – większość włamań wykorzystuje znane, już załatane luki,</li>
+<li>włącz uwierzytelnianie dwuskładnikowe dla kont administratorów,</li>
+<li>ogranicz liczbę kont z uprawnieniami administratora,</li>
+<li>miej kopie zapasowe plików i bazy danych przechowywane poza serwerem i sprawdź, czy da się z nich przywrócić stronę.</li>
+</ul>
+
+<h2>Krok 8: Formalności – RODO i polityka prywatności</h2>
+<p>Jeśli strona zbiera dane osobowe (formularz kontaktowy, newsletter, komentarze) lub korzysta z narzędzi analitycznych i reklamowych, potrzebujesz polityki prywatności, a przy plikach cookie, które nie są niezbędne, także mechanizmu zgody. Firmy powinny pamiętać o obowiązkach informacyjnych wobec klientów. Przy wątpliwościach skonsultuj się z prawnikiem – gotowe szablony z internetu rzadko pasują w całości.</p>
+
+<h2>Krok 9: Treść i widoczność w wyszukiwarkach</h2>
+<p>WordPress od wersji 5.5 automatycznie tworzy mapę strony (pod adresem /wp-sitemap.xml). Zgłoś ją w Google Search Console i Bing Webmaster Tools, aby wyszukiwarki szybciej poznały Twoje podstrony. Najważniejsza jest jednak treść: jasno opisz, czym się zajmujesz, dodaj dane kontaktowe, a dla firmy lokalnej – adres i obszar działania. Dbaj o szybkość strony: kompresuj zdjęcia i nie przesadzaj z wtyczkami.</p>
+
+<h2>ProHoster – jedna z opcji hostingu</h2>
+<p>Jeśli szukasz hostingu lub serwera VPS dla swojej strony, jedną z opcji jest ProHoster – międzynarodowy dostawca usług serwerowych. Nie twierdzimy, że to najlepszy wybór dla każdego – mamy z tym dostawcą umowę partnerską. Przed zakupem przejdź przez kryteria z kroku 2: sprawdź dostępne lokalizacje serwerów, parametry planu, wsparcie dla PHP i baz danych, kopie zapasowe, cenę odnowienia oraz formy płatności i faktur. Oferta się zmienia, dlatego weryfikuj ją bezpośrednio na stronie dostawcy.</p>
+<div class="cta-box">
+<p><strong>ProHoster</strong> – hosting, serwery VPS i serwery dedykowane. Sprawdź aktualne plany, lokalizacje i warunki u dostawcy.</p>
+<a class="cta" href="https://ntzgd.com/g/gaetfoqpj7c5205e972d934d4157fe/" rel="sponsored noopener" target="_blank">Sprawdź ofertę ProHoster (link afiliacyjny)</a>
+</div>
+
+<h2>Checklista przed startem strony</h2>
+<ul>
+<li>Domena jest zarejestrowana na mnie lub moją firmę i znam datę odnowienia.</li>
+<li>Strona działa pod adresem z https://.</li>
+<li>Mam aktualnego WordPressa, motyw i tylko niezbędne wtyczki.</li>
+<li>Kopie zapasowe są robione automatycznie i przechowywane poza serwerem.</li>
+<li>Mam politykę prywatności i dane kontaktowe.</li>
+<li>Mapa strony jest zgłoszona do wyszukiwarek.</li>
+</ul>
+
+      <section class="faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Najczęstsze pytania (FAQ)</h2>
+<h3>Ile kosztuje własna strona na WordPressie?</h3>
+<p>Sam WordPress jest darmowy. Płacisz za domenę i hosting, a opcjonalnie za płatny motyw lub wtyczki. Ceny zależą od dostawcy, dlatego porównuj cenę pierwszego okresu z ceną odnowienia.</p>
+<h3>Czy do strony firmowej potrzebuję serwera VPS?</h3>
+<p>Zwykle nie. Typowa strona firmowa lub blog dobrze działa na hostingu współdzielonym. VPS ma sens przy większym ruchu, specyficznych wymaganiach lub gdy chcesz sam administrować serwerem.</p>
+<h3>Czy domenę i hosting kupić u jednego dostawcy?</h3>
+<p>To wygodne, bo konfiguracja DNS dzieje się automatycznie. Kupując je osobno, łatwiej zmienić hosting w przyszłości. Najważniejsze, aby domena była zarejestrowana na Ciebie lub Twoją firmę.</p>
+<h3>Jak długo trwa podłączenie domeny do hostingu?</h3>
+<p>Zmiany DNS mogą rozchodzić się od kilku minut do nawet kilkudziesięciu godzin. Jeśli strona nie działa od razu po zmianie serwerów nazw, zwykle wystarczy poczekać.</p>
+      </section>
+    </article>
+
+    <aside class="related" aria-labelledby="related-heading">
+      <h2 id="related-heading">Inne poradniki</h2>
+      <ul>
+          <li><a href="/poradniki/darmowy-pakiet-biurowy-zamiast-ms-office.html">Darmowy pakiet biurowy zamiast MS Office (2026) – porównanie</a></li>
+          <li><a href="/poradniki/jak-odzyskac-usuniete-pliki.html">Jak odzyskać usunięte pliki z dysku lub pendrive’a – krok po kroku</a></li>
+          <li><a href="/poradniki/tani-hosting-vps-dla-poczatkujacych.html">Tani hosting i VPS dla początkujących – na co zwrócić uwagę</a></li>
+          <li><a href="/poradniki/program-do-edycji-wideo-dla-poczatkujacych.html">Program do edycji wideo dla początkujących – darmowe i płatne</a></li>
+          <li><a href="/poradniki/jak-wybrac-vpn.html">Jak wybrać VPN w 2026 – na co uważać</a></li>
+          <li><a href="/poradniki/vpn-zagraniczne-serwisy-publiczne-wifi.html">Jak oglądać zagraniczne serwisy i chronić się w publicznym Wi-Fi – VPN w praktyce</a></li>
+          <li><a href="/poradniki/jak-edytowac-pdf-za-darmo.html">Jak edytować PDF za darmo i kiedy warto płatny program</a></li>
+      </ul>
+      <p><a href="/poradniki/">Wszystkie poradniki</a> · <a href="/">Porównanie VPN</a></p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <h2 class="footer-title">Prywatność i pliki cookie (RODO — skrót)</h2>
+      <p>
+        Ta strona jest statyczna. <strong>Nie używamy trackerów analitycznych ani reklamowych własnych.</strong>
+        Po kliknięciu zewnętrznego linku afiliacyjnego sieć reklamowa lub dostawca mogą stosować własne pliki cookie.
+      </p>
+      <p class="fineprint">
+        Informacje mają charakter ogólny i mogą się zdezaktualizować. Przed zakupem sprawdź warunki u dostawcy.
+        Linki oznaczone jako afiliacyjne mogą generować dla nas prowizję — bez dodatkowych kosztów dla Ciebie.
+        Nazwy produktów są znakami towarowymi ich właścicieli.
+      </p>
+      <p class="fineprint">&copy; 2026 ye57y.github.io — strona informacyjna z reklamą afiliacyjną.</p>
+    </div>
+  </footer>
+</body>
+</html>
