@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jak skonfigurować VPS krok po kroku – pierwsza godzina z serwerem (2026)</title>
+  <meta name="description" content="Pierwszy serwer VPS: jakie parametry wybrać (bot, strona, WireGuard, Minecraft), logowanie SSH, klucze, wyłączenie hasła roota, zapora ufw, fail2ban, aktualizacje i kopie zapasowe.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ye57y.github.io/poradniki/jak-skonfigurowac-vps-krok-po-kroku.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Jak skonfigurować VPS krok po kroku – pierwsza godzina z serwerem (2026)">
+  <meta property="og:description" content="Pierwszy serwer VPS: jakie parametry wybrać (bot, strona, WireGuard, Minecraft), logowanie SSH, klucze, wyłączenie hasła roota, zapora ufw, fail2ban, aktualizacje i kopie zapasowe.">
+  <meta property="og:url" content="https://ye57y.github.io/poradniki/jak-skonfigurowac-vps-krok-po-kroku.html">
+  <meta property="article:published_time" content="2026-10-29">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Jak skonfigurować VPS krok po kroku – poradnik dla początkujących",
+ "description": "Pierwszy serwer VPS: jakie parametry wybrać (bot, strona, WireGuard, Minecraft), logowanie SSH, klucze, wyłączenie hasła roota, zapora ufw, fail2ban, aktualizacje i kopie zapasowe.",
+ "inLanguage": "pl-PL",
+ "datePublished": "2026-10-29",
+ "dateModified": "2026-10-29",
+ "mainEntityOfPage": "https://ye57y.github.io/poradniki/jak-skonfigurowac-vps-krok-po-kroku.html",
+ "author": {
+  "@type": "Organization",
+  "name": "Redakcja ye57y.github.io",
+  "url": "https://ye57y.github.io/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "ye57y.github.io",
+  "url": "https://ye57y.github.io/"
+ }
+}
+  </script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Strona główna",
+   "item": "https://ye57y.github.io/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Poradniki",
+   "item": "https://ye57y.github.io/poradniki/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Konfiguracja VPS",
+   "item": "https://ye57y.github.io/poradniki/jak-skonfigurowac-vps-krok-po-kroku.html"
+  }
+ ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Ile RAM potrzebuje VPS na bota Discord?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Prosty bot w Pythonie lub Node.js zwykle działa na 512 MB–1 GB RAM. Na start wystarczy najmniejszy plan z wirtualizacją KVM."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Jaki system wybrać na VPS?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dla początkujących najlepsze są Ubuntu LTS lub Debian – mają najwięcej poradników i długie wsparcie aktualizacjami."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Czy mogę postawić własny VPN na VPS?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Tak, np. WireGuard. Własny VPN szyfruje ruch w obcych sieciach, ale nie daje anonimowości, bo adres IP serwera jest powiązany z Tobą."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Co zrobić, gdy zablokuję sobie dostęp SSH?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Większość dostawców ma w panelu konsolę awaryjną (VNC/KVM), przez którą można się zalogować i poprawić konfigurację lub zaporę."
+   }
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="top-nav" aria-label="Menu główne">
+        <a href="/">Porównanie VPN</a>
+        <a href="/poradniki/">Poradniki</a>
+        <a href="/admitad-vpn-pl/">VPN dla Polski</a>
+      </nav>
+      <p class="disclosure" role="note">
+        <strong>Reklama / afiliacja:</strong> Strona zawiera linki afiliacyjne (reklama). Jeśli kupisz coś po kliknięciu takiego linku, możemy otrzymać prowizję – bez dodatkowych kosztów dla Ciebie. Linki afiliacyjne są wyraźnie oznaczone. Nie gwarantujemy konkretnych cen ani oszczędności – ceny i oferty zmieniają się u dostawców.
+      </p>
+      <nav class="breadcrumbs" aria-label="Okruszki"><a href="/">Strona główna</a> › <a href="/poradniki/">Poradniki</a> › <span>Konfiguracja VPS</span></nav>
+      <h1>Jak skonfigurować VPS krok po kroku – poradnik dla początkujących</h1>
+      <p class="lead">Od wyboru parametrów, przez SSH i klucze, po zaporę i kopie zapasowe – praktyczna instrukcja na Ubuntu i Debianie.</p>
+      <p class="meta">Opublikowano: <time datetime="2026-10-29">29 października 2026</time> · Redakcja ye57y.github.io</p>
+    </div>
+  </header>
+
+  <main class="container" id="tresc">
+    <article class="article">
+<p>Własny serwer VPS za kilkanaście–kilkadziesiąt złotych miesięcznie to świetny sposób na naukę Linuksa, hostowanie bota na Discorda, strony, prywatnego VPN-a (WireGuard) czy serwera gry dla znajomych. Ten poradnik prowadzi przez pierwszą godzinę z nowym VPS-em: od wyboru parametrów po podstawowe zabezpieczenia.</p>
+
+<h2>Krok 1: jakie parametry wybrać na start</h2>
+<ul>
+<li><strong>Bot, mała strona, WireGuard:</strong> 1 vCPU, 1–2 GB RAM, 20–25 GB SSD/NVMe.</li>
+<li><strong>WordPress z ruchem, kilka aplikacji w Dockerze:</strong> 2 vCPU, 4 GB RAM.</li>
+<li><strong>Serwer Minecraft dla kilku osób:</strong> 2–4 vCPU, 4–8 GB RAM.</li>
+<li><strong>Wirtualizacja KVM</strong> – zalecana (pełna izolacja, własne jądro, działa Docker i WireGuard). OpenVZ/LXC bywa tańsze, ale z ograniczeniami.</li>
+<li><strong>Lokalizacja</strong> – dla odbiorców z Polski: Polska lub kraj obok (Niemcy, Holandia, Czechy).</li>
+<li><strong>System</strong> – Ubuntu LTS lub Debian: najwięcej poradników i najmniej niespodzianek.</li>
+</ul>
+<p>Zwróć uwagę na cenę odnowienia, limit transferu, kopie zapasowe/snapshoty i sposób płatności. Więcej kryteriów w poradniku <a href="/poradniki/tani-hosting-vps-dla-poczatkujacych.html">tani hosting i VPS dla początkujących</a>.</p>
+<div class="cta-box">
+<p><strong>ProHoster</strong> – przykładowy dostawca tanich serwerów VPS/VDS (KVM) z lokalizacjami w Europie i dedykowanych serwerów. Porównaj parametry, ceny odnowienia i lokalizacje z innymi ofertami.</p>
+<a class="cta" href="https://ntzgd.com/g/gaetfoqpj7c5205e972d934d4157fe/" rel="sponsored noopener" target="_blank">Sprawdź ofertę ProHoster (link afiliacyjny)</a>
+</div>
+
+<h2>Krok 2: pierwsze logowanie przez SSH</h2>
+<p>Po zakupie dostaniesz adres IP i hasło roota. Na Windows 10/11, macOS i Linuksie w terminalu wpisz:</p>
+<p><code>ssh root@ADRES_IP</code></p>
+<p>Od razu zaktualizuj system: <code>apt update &amp;&amp; apt upgrade -y</code></p>
+
+<h2>Krok 3: zwykły użytkownik i klucze SSH</h2>
+<ol>
+<li>Utwórz użytkownika: <code>adduser jan</code> i nadaj mu sudo: <code>usermod -aG sudo jan</code>.</li>
+<li>Na swoim komputerze wygeneruj klucz: <code>ssh-keygen -t ed25519</code>.</li>
+<li>Skopiuj go na serwer: <code>ssh-copy-id jan@ADRES_IP</code> (na Windows możesz ręcznie wkleić zawartość pliku <code>.pub</code> do <code>~/.ssh/authorized_keys</code>).</li>
+<li>Sprawdź logowanie kluczem, a potem w <code>/etc/ssh/sshd_config</code> ustaw <code>PasswordAuthentication no</code> i <code>PermitRootLogin no</code>, po czym <code>sudo systemctl restart ssh</code>.</li>
+</ol>
+<p><strong>Nie zamykaj bieżącej sesji</strong>, dopóki nie sprawdzisz w nowym oknie, że logowanie działa – inaczej możesz odciąć sobie dostęp (wtedy zostaje konsola VNC w panelu dostawcy).</p>
+
+<h2>Krok 4: zapora i automatyczne aktualizacje</h2>
+<p><code>sudo apt install ufw unattended-upgrades fail2ban</code><br>
+<code>sudo ufw allow OpenSSH &amp;&amp; sudo ufw enable</code><br>
+Otwieraj tylko porty, których naprawdę używasz (np. 80/443 dla strony, 51820/udp dla WireGuard).</p>
+
+<h2>Krok 5: co dalej?</h2>
+<ul>
+<li><strong>Strona WWW:</strong> Caddy lub Nginx + darmowy certyfikat Let’s Encrypt.</li>
+<li><strong>Aplikacje:</strong> Docker i docker compose.</li>
+<li><strong>Prywatny VPN:</strong> WireGuard (np. skrypt wg-easy) – pamiętaj, że własny VPN ukrywa ruch przed siecią lokalną, ale nie daje anonimowości: IP serwera jest przypisany do Ciebie.</li>
+<li><strong>Kopie zapasowe:</strong> snapshoty u dostawcy + kopia danych poza serwerem (np. restic).</li>
+</ul>
+
+<h2>Najczęstsze błędy początkujących</h2>
+<ul>
+<li>Logowanie hasłem roota przez SSH miesiącami – boty próbują tysięcy haseł dziennie.</li>
+<li>Brak kopii zapasowych – „VPS to nie backup”.</li>
+<li>Bazy danych wystawione na świat bez hasła.</li>
+<li>Kupno najtańszego planu na 3 lata bez testu – zacznij od miesiąca.</li>
+</ul>
+<p>Zobacz też: <a href="/poradniki/jak-zrobic-strone-internetowa-krok-po-kroku.html">jak zrobić stronę internetową krok po kroku</a>.</p>
+
+      <section class="faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Najczęstsze pytania (FAQ)</h2>
+<h3>Ile RAM potrzebuje VPS na bota Discord?</h3>
+<p>Prosty bot w Pythonie lub Node.js zwykle działa na 512 MB–1 GB RAM. Na start wystarczy najmniejszy plan z wirtualizacją KVM.</p>
+<h3>Jaki system wybrać na VPS?</h3>
+<p>Dla początkujących najlepsze są Ubuntu LTS lub Debian – mają najwięcej poradników i długie wsparcie aktualizacjami.</p>
+<h3>Czy mogę postawić własny VPN na VPS?</h3>
+<p>Tak, np. WireGuard. Własny VPN szyfruje ruch w obcych sieciach, ale nie daje anonimowości, bo adres IP serwera jest powiązany z Tobą.</p>
+<h3>Co zrobić, gdy zablokuję sobie dostęp SSH?</h3>
+<p>Większość dostawców ma w panelu konsolę awaryjną (VNC/KVM), przez którą można się zalogować i poprawić konfigurację lub zaporę.</p>
+      </section>
+    </article>
+
+    <aside class="related" aria-labelledby="related-heading">
+      <h2 id="related-heading">Inne poradniki</h2>
+      <ul>
+          <li><a href="/poradniki/darmowy-pakiet-biurowy-zamiast-ms-office.html">Darmowy pakiet biurowy zamiast MS Office (2026) – porównanie</a></li>
+          <li><a href="/poradniki/jak-odzyskac-usuniete-pliki.html">Jak odzyskać usunięte pliki z dysku lub pendrive’a – krok po kroku</a></li>
+          <li><a href="/poradniki/tani-hosting-vps-dla-poczatkujacych.html">Tani hosting i VPS dla początkujących – na co zwrócić uwagę</a></li>
+          <li><a href="/poradniki/program-do-edycji-wideo-dla-poczatkujacych.html">Program do edycji wideo dla początkujących – darmowe i płatne</a></li>
+          <li><a href="/poradniki/jak-wybrac-vpn.html">Jak wybrać VPN w 2026 – na co uważać</a></li>
+          <li><a href="/poradniki/vpn-zagraniczne-serwisy-publiczne-wifi.html">Jak oglądać zagraniczne serwisy i chronić się w publicznym Wi-Fi – VPN w praktyce</a></li>
+          <li><a href="/poradniki/jak-edytowac-pdf-za-darmo.html">Jak edytować PDF za darmo i kiedy warto płatny program</a></li>
+          <li><a href="/poradniki/jak-zrobic-strone-internetowa-krok-po-kroku.html">Jak zrobić własną stronę internetową krok po kroku – domena, hosting, WordPress</a></li>
+          <li><a href="/poradniki/jak-przekonwertowac-wideo-na-mp4.html">Jak przekonwertować wideo na MP4 i zmniejszyć rozmiar filmu</a></li>
+          <li><a href="/poradniki/jak-zabezpieczyc-telefon-i-laptopa-w-podrozy.html">Jak zabezpieczyć telefon i laptopa w podróży – lista kontrolna</a></li>
+          <li><a href="/poradniki/darmowa-alternatywa-dla-excela-i-worda-na-telefon.html">Darmowa alternatywa dla Excela i Worda na telefon</a></li>
+          <li><a href="/poradniki/jak-zablokowac-reklamy-na-telefonie.html">Jak zablokować reklamy na telefonie – Android i iPhone</a></li>
+          <li><a href="/poradniki/jak-ogladac-polska-telewizje-za-granica.html">Jak oglądać polską telewizję i Netflixa za granicą – legalnie</a></li>
+          <li><a href="/poradniki/czy-publiczne-wifi-jest-bezpieczne.html">Czy publiczne Wi-Fi jest bezpieczne? Zagrożenia i jak się chronić</a></li>
+          <li><a href="/poradniki/jak-zmniejszyc-rozmiar-pdf.html">Jak zmniejszyć rozmiar pliku PDF – darmowe sposoby</a></li>
+          <li><a href="/poradniki/jak-otworzyc-plik-docx-bez-worda.html">Jak otworzyć plik DOCX (i XLSX) bez Worda – za darmo</a></li>
+      </ul>
+      <p><a href="/poradniki/">Wszystkie poradniki</a> · <a href="/">Porównanie VPN</a></p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <h2 class="footer-title">Prywatność i pliki cookie (RODO — skrót)</h2>
+      <p>
+        Ta strona jest statyczna. <strong>Nie używamy trackerów analitycznych ani reklamowych własnych.</strong>
+        Po kliknięciu zewnętrznego linku afiliacyjnego sieć reklamowa lub dostawca mogą stosować własne pliki cookie.
+      </p>
+      <p class="fineprint">
+        Informacje mają charakter ogólny i mogą się zdezaktualizować. Przed zakupem sprawdź warunki u dostawcy.
+        Linki oznaczone jako afiliacyjne mogą generować dla nas prowizję — bez dodatkowych kosztów dla Ciebie.
+        Nazwy produktów są znakami towarowymi ich właścicieli.
+      </p>
+      <p class="fineprint">&copy; 2026 ye57y.github.io — strona informacyjna z reklamą afiliacyjną.</p>
+    </div>
+  </footer>
+</body>
+</html>
