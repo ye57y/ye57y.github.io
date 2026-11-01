@@ -177,6 +177,57 @@ Otwieraj tylko porty, których naprawdę używasz (np. 80/443 dla strony, 51820/
 <li>Bazy danych wystawione na świat bez hasła.</li>
 <li>Kupno najtańszego planu na 3 lata bez testu – zacznij od miesiąca.</li>
 </ul>
+
+<h2>Krok 6: pierwsza strona z HTTPS w 10 minut (Caddy)</h2>
+<p>Caddy to serwer WWW, który sam pobiera i odnawia darmowe certyfikaty Let’s Encrypt. Potrzebujesz domeny z rekordem A wskazującym na IP serwera.</p>
+<ol>
+<li>Zainstaluj Caddy według instrukcji z oficjalnej dokumentacji (pakiet dla Debiana/Ubuntu z repozytorium projektu).</li>
+<li>Otwórz porty: <code>sudo ufw allow 80,443/tcp</code>.</li>
+<li>W pliku <code>/etc/caddy/Caddyfile</code> wpisz:<br><code>twojadomena.pl {<br>&nbsp;&nbsp;root * /var/www/strona<br>&nbsp;&nbsp;file_server<br>}</code></li>
+<li>Wgraj pliki strony do <code>/var/www/strona</code> i wykonaj <code>sudo systemctl reload caddy</code>.</li>
+</ol>
+<p>Po chwili strona działa pod https://. Do aplikacji w Node.js czy Pythonie zamiast <code>file_server</code> użyj <code>reverse_proxy localhost:3000</code>.</p>
+
+<h2>Krok 7: bot na Discorda lub skrypt jako usługa systemd</h2>
+<p>Zamiast uruchamiać program w otwartej sesji SSH (zginie po rozłączeniu), zrób z niego usługę. Utwórz plik <code>/etc/systemd/system/bot.service</code>:</p>
+<p><code>[Unit]<br>Description=Moj bot<br>After=network.target<br><br>[Service]<br>User=jan<br>WorkingDirectory=/home/jan/bot<br>ExecStart=/usr/bin/python3 bot.py<br>Restart=always<br><br>[Install]<br>WantedBy=multi-user.target</code></p>
+<p>Następnie: <code>sudo systemctl daemon-reload &amp;&amp; sudo systemctl enable --now bot</code>. Logi podejrzysz poleceniem <code>journalctl -u bot -f</code>. Tokeny i hasła trzymaj w pliku <code>.env</code> z uprawnieniami <code>chmod 600</code>, nigdy w repozytorium.</p>
+
+<h2>Monitorowanie: czy serwer jeszcze żyje?</h2>
+<ul>
+<li><code>htop</code> – zużycie procesora i pamięci na żywo.</li>
+<li><code>df -h</code> – wolne miejsce na dysku (pełny dysk to częsta przyczyna „nagłej” awarii bazy danych).</li>
+<li><code>free -h</code> – pamięć; na małych VPS-ach warto dodać 1–2 GB pliku wymiany (swap).</li>
+<li>Zewnętrzny monitoring dostępności (darmowe plany usług typu „uptime monitor”) wyśle Ci e-mail, gdy strona przestanie odpowiadać.</li>
+</ul>
+
+<h2>VPS, hosting współdzielony czy darmowy hosting statyczny?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Rozwiązanie</th><th>Dla kogo</th><th>Plusy</th><th>Minusy</th></tr></thead>
+<tbody>
+<tr><td>Hosting współdzielony</td><td>WordPress, prosta strona firmowa</td><td>panel, poczta, brak administracji</td><td>ograniczona kontrola, brak własnych usług</td></tr>
+<tr><td>VPS (KVM)</td><td>boty, aplikacje, nauka Linuksa, VPN</td><td>pełna kontrola, root, Docker</td><td>sam odpowiadasz za bezpieczeństwo i kopie</td></tr>
+<tr><td>Hosting statyczny (np. GitHub Pages)</td><td>wizytówka, blog, dokumentacja</td><td>darmowy, szybki, bez serwera</td><td>tylko pliki statyczne, bez backendu</td></tr>
+</tbody>
+</table></div>
+
+<h2>Kopie zapasowe w praktyce</h2>
+<p>Najprostszy zestaw dla początkującego: <strong>snapshot</strong> w panelu dostawcy przed każdą większą zmianą (aktualizacja systemu, nowa aplikacja) oraz codzienna kopia danych na zewnętrzny serwer lub do chmury. Narzędzie restic robi zaszyfrowane, przyrostowe kopie: <code>restic -r sftp:kopia@inny-serwer:/backup backup /home/jan /etc</code>, a wpis w cronie uruchamia je automatycznie. Raz na jakiś czas <strong>przetestuj odtworzenie</strong> – kopia, której nigdy nie przywrócono, to tylko nadzieja.</p>
+
+<h2>Odcięty dostęp? Plan ratunkowy</h2>
+<ol>
+<li>Zaloguj się do panelu dostawcy i otwórz <strong>konsolę VNC/KVM</strong> – działa niezależnie od SSH i zapory.</li>
+<li>Sprawdź zaporę: <code>sudo ufw status</code>; w razie potrzeby <code>sudo ufw allow OpenSSH</code>.</li>
+<li>Sprawdź konfigurację SSH: <code>sudo sshd -t</code> pokaże błąd składni.</li>
+<li>Jeśli nic nie pomaga – przywróć snapshot lub uruchom tryb rescue z panelu.</li>
+</ol>
+
+
+<h2>Ile to kosztuje naprawdę?</h2>
+<p>Najtańsze VPS-y w Europie kosztują kilka–kilkanaście euro miesięcznie, ale do ceny warto doliczyć: domenę (kilkadziesiąt złotych rocznie, po pierwszym roku często drożej), kopie zapasowe lub snapshoty (u wielu dostawców płatne osobno), dodatkowy adres IPv4 oraz ewentualny VAT, jeśli cena jest podana netto. Zawsze porównuj cenę <strong>odnowienia</strong>, a nie tylko promocyjny pierwszy okres, i sprawdź, czy dostawca pozwala na zwrot w pierwszych dniach. Płatność miesięczna na start daje możliwość zmiany dostawcy bez straty, jeśli serwer okaże się wolny lub niestabilny.</p>
+<h2>Gdzie się uczyć dalej</h2>
+<p>Dobre, darmowe źródła to oficjalna dokumentacja Ubuntu i Debiana, poradniki DigitalOcean Community (aktualne także dla innych dostawców) oraz dokumentacja Dockera. Najlepiej uczyć się na serwerze testowym, który w razie błędu można po prostu przeinstalować jednym kliknięciem.</p>
+
 <p>Zobacz też: <a href="/poradniki/jak-zrobic-strone-internetowa-krok-po-kroku.html">jak zrobić stronę internetową krok po kroku</a>.</p>
 
       <section class="faq" aria-labelledby="faq-heading">

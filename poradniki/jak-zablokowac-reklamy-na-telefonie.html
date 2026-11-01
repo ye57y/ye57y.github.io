@@ -169,6 +169,51 @@
 <li><strong>iPhone:</strong> bloker treści do Safari + DNS.</li>
 <li><strong>Reklamy pojawiają się na ekranie głównym:</strong> szukaj i usuń podejrzaną aplikację (Ustawienia → Aplikacje, posortuj wg daty instalacji), potem przeskanuj telefon Google Play Protect.</li>
 </ul>
+
+<h2>Krok po kroku: Prywatny DNS na Samsungu, Xiaomi i Pixelu</h2>
+<p>Ścieżka do ustawienia różni się w zależności od nakładki producenta. Najczęściej spotkasz takie warianty:</p>
+<ul>
+<li><strong>Samsung (One UI):</strong> Ustawienia → Połączenia → Więcej ustawień połączeń → Prywatny serwer DNS → „Nazwa hosta dostawcy prywatnego DNS”.</li>
+<li><strong>Xiaomi / Redmi / POCO (HyperOS, MIUI):</strong> Ustawienia → Połączenie i udostępnianie → Prywatny DNS.</li>
+<li><strong>Google Pixel i „czysty” Android:</strong> Ustawienia → Sieć i internet → Prywatny DNS.</li>
+<li><strong>Motorola, OnePlus, Oppo:</strong> zwykle w sekcji „Sieć i internet” lub „Wi-Fi i sieć” – najszybciej wpisać „DNS” w wyszukiwarkę ustawień.</li>
+</ul>
+<p>Po wpisaniu adresu i zapisaniu otwórz kilka stron, na których zwykle widzisz dużo reklam. Jeśli coś przestało działać (np. aplikacja sklepu nie ładuje promocji, a link z newslettera nie otwiera się), wróć do ustawienia „Automatycznie” – to jedno kliknięcie. Pamiętaj też, że niektóre sieci firmowe i hotelowe blokują prywatny DNS; wtedy telefon pokaże komunikat o braku połączenia z serwerem DNS.</p>
+
+<h2>iPhone krok po kroku</h2>
+<ol>
+<li><strong>Bloker treści do Safari:</strong> zainstaluj z App Store aplikację z blokerem (np. AdGuard, 1Blocker, Wipr), potem Ustawienia → Aplikacje → Safari → Rozszerzenia i włącz bloker. Bez tego kroku aplikacja nic nie robi.</li>
+<li><strong>DNS filtrujący:</strong> część aplikacji instaluje profil DNS – po instalacji zatwierdź go w Ustawienia → Ogólne → VPN i zarządzanie urządzeniem.</li>
+<li><strong>Ochrona przed śledzeniem:</strong> Ustawienia → Prywatność i ochrona → Śledzenie – wyłącz „Zezwalaj aplikacjom na prośby o śledzenie”. To nie usuwa reklam, ale ogranicza ich personalizację.</li>
+<li><strong>Kalendarz-spam:</strong> jeśli w kalendarzu pojawiają się dziwne wydarzenia z linkami, usuń subskrybowany kalendarz w Ustawienia → Aplikacje → Kalendarz → Konta.</li>
+</ol>
+
+<h2>Porównanie metod w skrócie</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Metoda</th><th>Koszt</th><th>Strony WWW</th><th>Aplikacje i gry</th><th>Trudność</th></tr></thead>
+<tbody>
+<tr><td>Cofnięcie powiadomień</td><td>0 zł</td><td>usuwa spam z powiadomień</td><td>–</td><td>bardzo łatwa</td></tr>
+<tr><td>Prywatny DNS</td><td>0 zł</td><td>dobrze</td><td>częściowo</td><td>łatwa</td></tr>
+<tr><td>Przeglądarka z blokerem</td><td>0 zł</td><td>bardzo dobrze</td><td>nie</td><td>łatwa</td></tr>
+<tr><td>Aplikacja systemowa (lokalny VPN)</td><td>darmowa lub płatna</td><td>bardzo dobrze</td><td>dobrze</td><td>średnia</td></tr>
+<tr><td>VPN z filtrowaniem</td><td>zwykle płatny</td><td>dobrze</td><td>częściowo</td><td>łatwa</td></tr>
+</tbody>
+</table></div>
+<p>Na Androidzie można jednocześnie używać tylko jednego „VPN-a”, więc aplikacja blokująca na zasadzie lokalnego VPN i prawdziwy VPN zwykle się wykluczają. Wyjątkiem są rozwiązania, które łączą obie funkcje w jednej aplikacji.</p>
+
+<h2>Reklamy w YouTube, Facebooku i grach – co realnie da się zrobić</h2>
+<p><strong>YouTube:</strong> filtry DNS nie pomagają. Legalną drogą bez reklam jest YouTube Premium (także w planie rodzinnym lub studenckim). W przeglądarce z blokerem reklamy często znikają, ale serwis regularnie z tym walczy. <strong>Facebook i Instagram:</strong> reklamy są wplecione w treść, więc praktycznie nie da się ich odfiltrować; możesz za to ograniczyć personalizację w „Preferencjach reklam”. <strong>Gry:</strong> wiele gier daje nagrody za obejrzenie reklamy – przy blokowaniu nagroda po prostu nie przyjdzie. Często tańsze od walki z reklamami jest jednorazowe „usuń reklamy” w samej grze.</p>
+
+<h2>Jak sprawdzić, czy blokowanie działa</h2>
+<ul>
+<li>Otwórz w przeglądarce dużą stronę informacyjną i porównaj liczbę banerów przed i po zmianie.</li>
+<li>Skorzystaj z publicznych stron testowych blokowania reklam (wpisz w wyszukiwarkę „ad block test”) – pokazują, jaki odsetek domen reklamowych został zatrzymany.</li>
+<li>W aplikacjach typu AdGuard czy RethinkDNS zajrzyj do dziennika zapytań – zobaczysz, które domeny są blokowane i które aplikacje najczęściej łączą się z trackerami.</li>
+</ul>
+
+<h2>Bezpieczeństwo: na co uważać przy aplikacjach „blokujących reklamy”</h2>
+<p>W sklepach i na stronach z APK krąży sporo aplikacji, które obiecują usuwanie reklam, a same je wyświetlają albo zbierają dane. Instaluj blokery tylko ze sklepu lub oficjalnej strony producenta, sprawdzaj liczbę pobrań i datę ostatniej aktualizacji, a przy instalacji spoza Google Play wyłącz z powrotem zgodę na „instalowanie nieznanych aplikacji” zaraz po zakończeniu. Aplikacja blokująca widzi Twój ruch, więc wybieraj taką, której politykę prywatności rozumiesz.</p>
+
 <p>Więcej o bezpieczeństwie: <a href="/poradniki/jak-zabezpieczyc-telefon-i-laptopa-w-podrozy.html">jak zabezpieczyć telefon i laptopa w podróży</a> oraz <a href="/poradniki/czy-publiczne-wifi-jest-bezpieczne.html">czy publiczne Wi-Fi jest bezpieczne</a>.</p>
 
       <section class="faq" aria-labelledby="faq-heading">
